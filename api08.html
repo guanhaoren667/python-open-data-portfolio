@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新竹市測速照相固定桿設置地點｜Python API 作品集</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f6f8fb;
+            color: #253247;
+            font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #0b66c3;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            margin-bottom: 10px;
+            color: #17375e;
+        }
+
+        .page-header p {
+            color: #63758a;
+        }
+
+        .record-count {
+            margin-top: 10px;
+            color: #0b66c3;
+            font-weight: 700;
+        }
+
+        .update-note {
+            margin-top: 12px;
+            padding: 12px 16px;
+            color: #52647a;
+            background-color: #eaf4ff;
+            border-left: 4px solid #0b66c3;
+            border-radius: 6px;
+        }
+
+        .update-note code {
+            color: #17375e;
+            font-weight: 700;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            background-color: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(34, 67, 108, 0.08);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            min-width: 850px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e5eaf0;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #ffffff;
+            background-color: #0b66c3;
+            white-space: nowrap;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f7fd;
+        }
+
+        td:nth-child(2),
+        td:nth-child(3),
+        td:nth-child(4) {
+            white-space: nowrap;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 25px 14px;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <a class="back-link" href="index.html">
+            ← 返回作品集首頁
+        </a>
+
+        <header class="page-header">
+            <h1>新竹市警察局測速照相固定桿設置地點概述</h1>
+
+            <p>
+                使用 Python 讀取新竹市政府開放資料 API，
+                並整理設置地點、速限、經度與緯度等欄位。
+            </p>
+
+            <p class="record-count">
+                本頁顯示共 59 筆資料
+            </p>
+
+            <p class="update-note">
+                本頁資料由 Python 程式讀取 API 後產生。<br>
+                如需更新資料，可重新執行
+                <code>generate_api08_html.py</code>。
+            </p>
+        </header>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>地點</th>
+                        <th>速限</th>
+                        <th>經度</th>
+                        <th>緯度</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>新竹市北區西濱路、東大路四段口(北上)</td>
+                        <td>60</td>
+                        <td>120.934122</td>
+                        <td>24.842299</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區西濱路、東大路四段口(南下)</td>
+                        <td>60</td>
+                        <td>120.934198</td>
+                        <td>24.842538</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區西濱路、海埔路口</td>
+                        <td>60</td>
+                        <td>120.924501</td>
+                        <td>24.818997</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區西濱路、延平路三段口</td>
+                        <td>60</td>
+                        <td>120.927341</td>
+                        <td>24.827642</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區西濱路、榮濱南路口</td>
+                        <td>60</td>
+                        <td>120.927216</td>
+                        <td>24.832527</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區經國路二段、延平路一段口</td>
+                        <td>50</td>
+                        <td>120.955551</td>
+                        <td>24.805037</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區經國路二段、磐石路口</td>
+                        <td>50</td>
+                        <td>120.958047</td>
+                        <td>24.807744</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區經國路二段、水田街口</td>
+                        <td>50</td>
+                        <td>120.965761</td>
+                        <td>24.812772</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區武陵路61巷口</td>
+                        <td>50</td>
+                        <td>120.965238</td>
+                        <td>24.817877</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區武陵路196巷口(武陵匝道口)</td>
+                        <td>50</td>
+                        <td>120.968094</td>
+                        <td>24.820688</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區東大路三段77巷口(往市區)</td>
+                        <td>50</td>
+                        <td>120.951764</td>
+                        <td>24.832505</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區東大路三段110巷口（往南寮）</td>
+                        <td>50</td>
+                        <td>120.954779</td>
+                        <td>24.829601</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區公道五路四段、防汛道路(往南寮)</td>
+                        <td>50</td>
+                        <td>120.958539</td>
+                        <td>24.830075</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區公道五路四段127號前</td>
+                        <td>40</td>
+                        <td>120.975636</td>
+                        <td>24.825012</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區公道五路五段、東大路三段430巷口</td>
+                        <td>50</td>
+                        <td>120.944094</td>
+                        <td>24.838078</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區台68線東大路匝道口</td>
+                        <td>40</td>
+                        <td>120.965341</td>
+                        <td>24.817825</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區台68線榮濱路匝道口</td>
+                        <td>50</td>
+                        <td>120.934101</td>
+                        <td>24.845256</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區天府路一段、東大路三段291巷口</td>
+                        <td>50</td>
+                        <td>120.944315</td>
+                        <td>24.833956</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區舊港1-1號前(舊港大橋)</td>
+                        <td>50</td>
+                        <td>120.942742</td>
+                        <td>24.844084</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市北區湳雅街367號前</td>
+                        <td>30</td>
+                        <td>120.977961</td>
+                        <td>24.823581</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區光復路二段、忠孝路口</td>
+                        <td>50</td>
+                        <td>120.989832</td>
+                        <td>24.800166</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區光復路二段、建功路口</td>
+                        <td>50</td>
+                        <td>120.998013</td>
+                        <td>24.795917</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區東大高架民族路上方</td>
+                        <td>50</td>
+                        <td>120.973693</td>
+                        <td>24.805871</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區東大高架花園街上方</td>
+                        <td>50</td>
+                        <td>120.976889</td>
+                        <td>24.803887</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區公道五路三段、經國路一段口</td>
+                        <td>50</td>
+                        <td>120.985527</td>
+                        <td>24.814775</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區中華路一段2巷137號前</td>
+                        <td>40</td>
+                        <td>120.986894</td>
+                        <td>24.822032</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區中華路一段284巷口</td>
+                        <td>50</td>
+                        <td>120.989275</td>
+                        <td>24.812634</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區中華路二段2號前</td>
+                        <td>50</td>
+                        <td>120.983132</td>
+                        <td>24.809291</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區寶山路317巷口(高峰植物園)</td>
+                        <td>50</td>
+                        <td>120.982394</td>
+                        <td>24.788257</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區經國路、鐵道路口</td>
+                        <td>50</td>
+                        <td>120.981133</td>
+                        <td>24.814763</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區關新路、關新一街口</td>
+                        <td>30</td>
+                        <td>121.018375</td>
+                        <td>24.784631</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區溪埔路、經國路一段156巷50弄口</td>
+                        <td>50</td>
+                        <td>120.990605</td>
+                        <td>24.817444</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區自由路、民族路口</td>
+                        <td>50</td>
+                        <td>120.982636</td>
+                        <td>24.810917</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區柴橋路255巷口</td>
+                        <td>40</td>
+                        <td>120.961734</td>
+                        <td>24.762645</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區高翠路311號前</td>
+                        <td>40</td>
+                        <td>120.984967</td>
+                        <td>24.778403</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區光復路一段525巷67號前</td>
+                        <td>40</td>
+                        <td>121.013789</td>
+                        <td>24.781917</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市東區中華路一段52號前</td>
+                        <td>50</td>
+                        <td>120.994827</td>
+                        <td>24.818114</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區中華路四段224巷口</td>
+                        <td>60</td>
+                        <td>120.948946</td>
+                        <td>24.795299</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區中華路四段、東華路口</td>
+                        <td>60</td>
+                        <td>120.945526</td>
+                        <td>24.793619</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區中華路四段、牛埔南路口</td>
+                        <td>60</td>
+                        <td>120.929718</td>
+                        <td>24.788621</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區中華路五段74號前</td>
+                        <td>60</td>
+                        <td>120.926757</td>
+                        <td>24.787479</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區中華路五段208巷口</td>
+                        <td>60</td>
+                        <td>120.920187</td>
+                        <td>24.784408</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區中華路五段320巷口</td>
+                        <td>60</td>
+                        <td>120.919237</td>
+                        <td>24.781081</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區中華路五段644巷口</td>
+                        <td>60</td>
+                        <td>120.915769</td>
+                        <td>24.767655</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區中華路五段832號前(香山火車站)</td>
+                        <td>60</td>
+                        <td>120.913248</td>
+                        <td>24.762859</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區中華路六段、五福路口</td>
+                        <td>60</td>
+                        <td>120.908282</td>
+                        <td>24.742623</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區中華路六段、南隘路口</td>
+                        <td>60</td>
+                        <td>120.915434</td>
+                        <td>24.731753</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區中華路六段807號前</td>
+                        <td>60</td>
+                        <td>120.916661</td>
+                        <td>24.720003</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區西濱路港南國小前</td>
+                        <td>60</td>
+                        <td>120.922573</td>
+                        <td>24.813971</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區台61線西濱快速公路、宮口街口</td>
+                        <td>80</td>
+                        <td>120.919397</td>
+                        <td>24.793509</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區台61線西濱快速公路85.2公里處</td>
+                        <td>80</td>
+                        <td>120.885593</td>
+                        <td>24.736444</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區景觀大道201號前(觀景台)</td>
+                        <td>70</td>
+                        <td>120.949832</td>
+                        <td>24.786226</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區景觀大道、五福路二段口</td>
+                        <td>50</td>
+                        <td>120.953091</td>
+                        <td>24.755061</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區景觀大道、東香路二段口</td>
+                        <td>70</td>
+                        <td>120.952954</td>
+                        <td>24.773161</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區南隘路南隘國小前（往北）</td>
+                        <td>50</td>
+                        <td>120.927813</td>
+                        <td>24.725484</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區南隘路2段76號對面（往北）</td>
+                        <td>50</td>
+                        <td>120.929997</td>
+                        <td>24.726502</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區牛埔東路480號前</td>
+                        <td>50</td>
+                        <td>120.936781</td>
+                        <td>24.793714</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區五福路二段120巷口</td>
+                        <td>50</td>
+                        <td>120.938317</td>
+                        <td>24.751755</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市香山區延平路二段961之1號旁</td>
+                        <td>50</td>
+                        <td>120.926462</td>
+                        <td>24.811949</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

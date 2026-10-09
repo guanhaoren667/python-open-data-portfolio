@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="管浩任的 Python、政府開放資料 API 與網頁開發作品集。">
+    <title>管浩任｜Python API 作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif, "Microsoft JhengHei";
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f6f8fb;
+            color: #253247;
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 2px 12px rgba(26, 57, 96, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-logo a {
+            font-size: 22px;
+            font-weight: 800;
+            color: #194f8a;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 12px;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-item a:hover,
+        .nav-item a.active {
+            color: #0b66c3;
+            background-color: #eaf4ff;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            border: 0;
+            background: transparent;
+            padding: 6px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #253247;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        .hero {
+            min-height: 72vh;
+            display: grid;
+            place-items: center;
+            padding: 110px 20px 80px;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(65, 145, 255, 0.18), transparent 32%),
+                linear-gradient(135deg, #f8fbff 0%, #eaf3ff 100%);
+        }
+
+        .hero-content {
+            width: min(900px, 100%);
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: #0b66c3;
+            background: #e1efff;
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.3rem, 6vw, 4.6rem);
+            line-height: 1.15;
+            color: #17375e;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 0 auto 30px;
+            color: #52647a;
+            font-size: 1.1rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 11px 20px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(11, 102, 195, 0.18);
+        }
+
+        .button-primary {
+            color: #fff;
+            background: #0b66c3;
+        }
+
+        .button-secondary {
+            color: #0b66c3;
+            background: #fff;
+            border: 1px solid #bad7f5;
+        }
+
+        .section {
+            padding: 90px 20px;
+        }
+
+        .section:nth-of-type(even) {
+            background: #fff;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 46px;
+        }
+
+        .section-heading h2 {
+            color: #17375e;
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: #6b7b8f;
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.6fr) minmax(240px, 0.8fr);
+            gap: 38px;
+            align-items: start;
+        }
+
+        .about-copy {
+            background: #fff;
+            padding: 34px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(34, 67, 108, 0.08);
+        }
+
+        .about-copy p + p {
+            margin-top: 18px;
+        }
+
+        .quote {
+            margin: 24px 0;
+            padding: 20px 24px;
+            border-left: 5px solid #0b66c3;
+            background: #f2f7fd;
+            color: #2f4d6c;
+            border-radius: 0 10px 10px 0;
+            font-weight: 700;
+        }
+
+        .profile-card,
+        .contact-info,
+        .skills-panel {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(34, 67, 108, 0.08);
+        }
+
+        .profile-card {
+            padding: 28px;
+        }
+
+        .profile-card h3 {
+            color: #17375e;
+            margin-bottom: 16px;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .tag {
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #eaf4ff;
+            color: #0b66c3;
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: #fff;
+            padding: 25px 28px;
+            border-radius: 14px;
+            box-shadow: 0 7px 24px rgba(34, 67, 108, 0.07);
+            border-left: 5px solid #0b66c3;
+        }
+
+        .timeline-item + .timeline-item {
+            margin-top: 18px;
+        }
+
+        .timeline-item .date {
+            color: #0b66c3;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 7px 24px rgba(34, 67, 108, 0.07);
+            border: 1px solid #e7edf5;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(34, 67, 108, 0.12);
+        }
+
+        .project-number {
+            color: #0b66c3;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .project-card h3 {
+            color: #17375e;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #66788d;
+            font-size: 0.96rem;
+        }
+		
+		.project-link {
+			display: inline-block;
+			margin-top: 18px;
+			padding: 8px 15px;
+			color: #ffffff;
+			background-color: #0b66c3;
+			border-radius: 8px;
+			text-decoration: none;
+			font-weight: 700;
+			transition: background-color 0.2s ease;
+		}
+		.project-link:hover {
+			background-color: #084f98;
+		}
+        .contact-section {
+            padding: 90px 20px;
+            background: #eef5fd;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        .contact-info,
+        .skills-panel {
+            padding: 32px;
+        }
+
+        .contact-info h2,
+        .skills-panel h2 {
+            color: #17375e;
+            margin-bottom: 18px;
+        }
+
+        .contact-info p,
+        .skills-panel p,
+        .skills-panel li {
+            color: #63758a;
+        }
+
+        .contact-info p + p {
+            margin-top: 14px;
+        }
+
+        .email-link {
+            color: #0b66c3;
+            text-decoration: none;
+            font-weight: 800;
+            overflow-wrap: anywhere;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        .skills-panel ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            padding: 22px;
+            text-align: center;
+            background: #17375e;
+            color: #dce9f7;
+        }
+
+        @media screen and (max-width: 900px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .about-layout,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: -100%;
+                flex-direction: column;
+                background-color: #ffffff;
+                width: 100%;
+                text-align: center;
+                gap: 0;
+                transition: 0.3s ease;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-item,
+            .nav-item a {
+                width: 100%;
+            }
+
+            .nav-item a {
+                display: block;
+                padding: 15px 0;
+                border-radius: 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero {
+                padding-top: 90px;
+            }
+
+            .section {
+                padding: 70px 18px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" aria-label="主要導覽列">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Hao-Jen Portfolio</a>
+            </div>
+
+            <button class="menu-toggle" id="mobile-menu" type="button" aria-label="開啟或關閉導覽選單" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#about">關於我</a></li>
+                <li class="nav-item"><a href="#news">學習歷程</a></li>
+                <li class="nav-item"><a href="#products">API 作品集</a></li>
+                <li class="nav-item"><a href="#contact">聯絡我</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <span class="eyebrow">Python × Government Open Data × Web</span>
+            <h1>管浩任的 Python API 作品集</h1>
+            <p>以 Python 串接政府開放資料 JSON API，整理並呈現公開資訊。我正在把學習成果逐步整合為可閱讀、可操作、可持續擴充的網頁作品。</p>
+            <div class="hero-actions">
+                <a class="button button-primary" href="#products">查看 API 作品</a>
+                <a class="button button-secondary" href="#about">認識我</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <div class="section-container">
+                <div class="section-heading">
+                    <h2>關於我</h2>
+                    <p>持續學習、拆解問題，並把知識轉化成能運作的作品。</p>
+                </div>
+
+                <div class="about-layout">
+                    <article class="about-copy">
+                        <p>您好，我是管浩任，畢業於逢甲大學機械與電腦輔助工程學系。過去的學習與工作經驗，使我養成重視細節、主動查找資料與持續練習的習慣。近期持續透過 Python、政府開放資料 API 與網頁製作累積作品及實作經驗。</p>
+
+                        <blockquote class="quote">
+                            “The only easy day was yesterday.”<br>
+                            最輕鬆的一天就是昨天。
+                        </blockquote>
+
+                        <p>我有個習慣，就是遇到問題時會一直追查原因。像是在學習 Python 時，即使程式已經能正常執行，我還是會想知道它背後的原理，有時候甚至會為了一個細節實際測試不同寫法，希望能夠了解其中的差異與原因。曾在大學重修必修課期間，針對過去題目與弱點持續練習，最後取得高於班級平均的成績。這段經驗也讓我更加相信，困難可以透過有方法的練習被拆解。</p>
+
+                        <p>近幾個月除了準備 TQC+ Python 考試之外，我也使用 Python 串接 10 項政府開放資料 API，分別完成資料讀取與欄位整理，並透過模組匯入 及文字選單，整合為統一的查詢系統。目前已將程式碼與專案說明公開於 GitHub，下一階段將進一步把資料整理成 HTML 表格與網頁內容。</p>
+
+                        <p>英文能力方面，我曾取得 TOEIC 795 分，也具備使用英文介面、閱讀技術資訊，以及與外籍同仁進行工作溝通的經驗。未來希望持續累積 Python、資料處理、網頁應用與 AI 相關能力，並透過更多作品與實作經驗朝資訊相關職務發展。</p>
+                    </article>
+
+                    <aside class="profile-card">
+                        <h3>技能與方向</h3>
+                        <div class="tag-list">
+                            <span class="tag">Python</span>
+                            <span class="tag">JSON API</span>
+                            <span class="tag">requests</span>
+                            <span class="tag">CSV / YAML</span>
+                            <span class="tag">HTML / CSS</span>
+                            <span class="tag">BeautifulSoup</span>
+                            <span class="tag">英文溝通</span>
+                            <span class="tag">自主學習</span>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="section">
+            <div class="section-container">
+                <div class="section-heading">
+                    <h2>學習歷程</h2>
+                    <p>以實作成果記錄每一階段的進步。</p>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="date">階段一(已完成)</div>
+                        <h3>完成政府開放資料 API 整合查詢系統</h3>
+                        <p>使用 Python 與 requests 串接 10 項政府開放資料 API， 將各項功能拆分為獨立模組，再透過文字選單整合為統一查詢系統， 並將程式碼與說明公開於 GitHub。</p>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="date">階段二(進行中)</div>
+                        <h3>將 API 資料整理成 HTML 網頁</h3>
+                        <p>將各項政府開放資料轉換為容易閱讀的表格與作品卡片， 逐步完成可公開瀏覽的個人作品集網站。</p>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="date">持續進行</div>
+                        <h3>履歷與求職資料整合</h3>
+                        <p>將證照、作品集、技術能力與實際學習成果整理進履歷，為資訊相關職務做好準備。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="section">
+            <div class="section-container">
+                <div class="section-heading">
+                    <h2>API 作品集</h2>
+                    <p>以下先以卡片預留數項作品的位置，之後可逐一替換成真實作品名稱、說明、畫面與原始碼連結。</p>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card"><div class="project-number">API 01</div><h3>新竹市火災及爆炸災害潛勢公開資料管制量30倍之公共危險物品製造儲存或處理場所</h3><p>整理民國年月日、場所名稱、 地址與說明等欄位。</p><a class="project-link" href="api01.html">查看資料</a></article>
+                    <article class="project-card"><div class="project-number">API 02</div><h3>新竹市第22屆里長名冊(每年更新)</h3><p> 並整理屆別、姓名、職稱與里別等欄位</p><a class="project-link" href="api02.html">查看資料</a></article>
+                    <article class="project-card"><div class="project-number">API 03</div><h3>114學年度新竹市立國中小通訊資料</h3><p>整理校名、電話及地址</p><a class="project-link" href="api03.html">查看資料</a></article>
+                    <article class="project-card"><div class="project-number">API 04</div><h3>115年竹風藝文饗宴節目表</h3><p>含日期、時間、地點、活動名稱</p><a class="project-link" href="api04.html">查看資料</a></article>
+                    <article class="project-card"><div class="project-number">API 05</div><h3>新竹市預防接種合約院所名冊</h3><p>包含名稱、機構代碼、電話及地址</p><a class="project-link" href="api05.html">查看資料</a></article>
+                    <article class="project-card"><div class="project-number">API 06</div><h3>新北市機車定檢站名單</h3><p>讀取新北市政府開放資料，整理機車定檢站的代碼、站名、 電話與地址。</p><a class="project-link" href="api06.html">查看資料</a></article>
+                    <article class="project-card"><div class="project-number">API 07</div><h3>新竹市各級工會團體組織名冊</h3><p>整理團體名稱、聯絡電話、聯絡地址</p><a class="project-link" href="api07.html">查看資料</a></article>
+                    <article class="project-card"><div class="project-number">API 08</div><h3>新竹市警察局測速照相固定桿設置地點概述</h3><p>顯示地點、速限及經緯度座標</p><a class="project-link" href="api08.html">查看資料</a></article>
+                    <article class="project-card"><div class="project-number">API 09</div><h3>新竹市代收稅款金融機構服務據點</h3><p>單位及分行名稱、機構代號、地址和電話</p><a class="project-link" href="api09.html">查看資料</a></article>
+                    <article class="project-card"><div class="project-number">API 10</div><h3>新竹市立案表演團體名冊</h3><p>演藝團體名稱、立案日期、表演類型</p><a class="project-link" href="api10.html">查看資料</a></article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>聯絡我</h2>
+                    <p>如果您想進一步了解我的作品、學習歷程或合作可能，歡迎透過電子郵件與我聯繫。</p>
+                    <p><strong>電子信箱：</strong><br><a href="mailto:a0903535130@gmail.com" class="email-link">a0903535130@gmail.com</a></p>
+                </div>
+
+                <div class="skills-panel">
+                    <h2>目前專注方向</h2>
+                    <ul>
+                        <li>使用 Python 串接與整理 JSON API</li>
+                        <li>將資料轉換成 HTML 表格與網頁內容</li>
+                        <li>持續整理履歷、作品說明與求職資料</li>
+                        <li>完成求職準備後，再進一步學習 AI Agent</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 管浩任 Python API 作品集</p>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-item a');
+
+        mobileMenu.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('active');
+            mobileMenu.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenu.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        const sections = document.querySelectorAll('header[id], section[id]');
+
+        window.addEventListener('scroll', () => {
+            let currentId = 'home';
+
+            sections.forEach(section => {
+                if (window.scrollY >= section.offsetTop - 160) {
+                    currentId = section.id;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+            });
+        });
+    </script>
+</body>
+</html>

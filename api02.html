@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>新竹市第 22 屆里長名冊｜Python API 作品集</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f6f8fb;
+            color: #253247;
+            font-family:
+                "Segoe UI",
+                "Microsoft JhengHei",
+                sans-serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #0b66c3;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            color: #17375e;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #63758a;
+        }
+
+        .record-count {
+            margin-top: 10px;
+            color: #0b66c3;
+            font-weight: 700;
+        }
+
+        .update-note {
+            margin-top: 12px;
+            padding: 12px 16px;
+            color: #52647a;
+            background-color: #eaf4ff;
+            border-left: 4px solid #0b66c3;
+            border-radius: 6px;
+        }
+
+        .update-note code {
+            color: #17375e;
+            font-weight: 700;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            background-color: #ffffff;
+            border-radius: 14px;
+            box-shadow:
+                0 8px 30px rgba(34, 67, 108, 0.08);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            min-width: 700px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e5eaf0;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #ffffff;
+            background-color: #0b66c3;
+            white-space: nowrap;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f7fd;
+        }
+
+        td:nth-child(1),
+        td:nth-child(2),
+        td:nth-child(3) {
+            white-space: nowrap;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 25px 14px;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <a class="back-link" href="index.html">
+            ← 返回作品集首頁
+        </a>
+
+        <header class="page-header">
+            <h1>新竹市第 22 屆里長名冊</h1>
+
+            <p>
+                使用 Python 讀取新竹市政府開放資料 API，
+                並整理屆別、姓名、職稱與里別等欄位。
+            </p>
+
+            <p class="record-count">
+                本頁顯示共 122 筆資料
+            </p>
+
+            <p class="update-note">
+                本頁資料由 Python 程式讀取 API 後產生。<br>
+                如需更新資料，可重新執行
+                <code>generate_api02_html.py</code>。
+            </p>
+        </header>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>屆別</th>
+                        <th>姓名</th>
+                        <th>職稱</th>
+                        <th>里別</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>22</td>
+                        <td>徐兆生</td>
+                        <td>里長</td>
+                        <td>科園里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>溫國文</td>
+                        <td>里長</td>
+                        <td>仙宮里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>饒彬義</td>
+                        <td>里長</td>
+                        <td>金山里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳宣孝</td>
+                        <td>里長</td>
+                        <td>龍山里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>盧秋永</td>
+                        <td>里長</td>
+                        <td>新莊里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>徐水蓮</td>
+                        <td>里長</td>
+                        <td>關東里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>黃雅卿</td>
+                        <td>里長</td>
+                        <td>關新里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>林美玉</td>
+                        <td>里長</td>
+                        <td>仙水里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>何芝寧</td>
+                        <td>里長</td>
+                        <td>埔頂里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳海鋒</td>
+                        <td>里長</td>
+                        <td>武功里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>潘柏璋</td>
+                        <td>里長</td>
+                        <td>軍功里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>趙強</td>
+                        <td>里長</td>
+                        <td>光明里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>郭天寶</td>
+                        <td>里長</td>
+                        <td>立功里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>翁秀瓊</td>
+                        <td>里長</td>
+                        <td>豐功里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>邱漢奇</td>
+                        <td>里長</td>
+                        <td>建功里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>曾資強</td>
+                        <td>里長</td>
+                        <td>千甲里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>曾翰揚</td>
+                        <td>里長</td>
+                        <td>水源里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>劉晉隆</td>
+                        <td>代理里長</td>
+                        <td>東山里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>周彥甫</td>
+                        <td>里長</td>
+                        <td>東勢里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>温文泰</td>
+                        <td>里長</td>
+                        <td>前溪里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳駿翔</td>
+                        <td>里長</td>
+                        <td>光復里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>黃千芳</td>
+                        <td>里長</td>
+                        <td>綠水里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>張麗芬</td>
+                        <td>里長</td>
+                        <td>東園里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>林季蓉</td>
+                        <td>里長</td>
+                        <td>公園里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>林宸玉</td>
+                        <td>里長</td>
+                        <td>建華里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>沈雄輝</td>
+                        <td>里長</td>
+                        <td>南門里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>石添益</td>
+                        <td>里長</td>
+                        <td>南市里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳嘉福</td>
+                        <td>里長</td>
+                        <td>福德里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>呂賢輝</td>
+                        <td>里長</td>
+                        <td>振興里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>李文桂</td>
+                        <td>里長</td>
+                        <td>關帝里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>沈威志</td>
+                        <td>里長</td>
+                        <td>新興里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>王峯清</td>
+                        <td>里長</td>
+                        <td>復中里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>李文正</td>
+                        <td>里長</td>
+                        <td>育賢里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>李臺生</td>
+                        <td>里長</td>
+                        <td>親仁里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>黃玉卿</td>
+                        <td>里長</td>
+                        <td>錦華里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>范姜財</td>
+                        <td>里長</td>
+                        <td>三民里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>戴金河</td>
+                        <td>里長</td>
+                        <td>中正里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>蘇竹勝</td>
+                        <td>里長</td>
+                        <td>東門里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>張金滄</td>
+                        <td>里長</td>
+                        <td>文華里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>黃建廷</td>
+                        <td>里長</td>
+                        <td>復興里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>張雲錦</td>
+                        <td>里長</td>
+                        <td>榮光里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>林俊縢</td>
+                        <td>里長</td>
+                        <td>成功里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>郭朋鑫</td>
+                        <td>里長</td>
+                        <td>高峰里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>鄭陳秀芳</td>
+                        <td>里長</td>
+                        <td>竹蓮里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>鄭勁譹</td>
+                        <td>里長</td>
+                        <td>下竹里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳牡丹</td>
+                        <td>里長</td>
+                        <td>湖濱里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>黃桂蘭</td>
+                        <td>里長</td>
+                        <td>柴橋里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳煥勝</td>
+                        <td>里長</td>
+                        <td>頂竹里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>莊金清</td>
+                        <td>里長</td>
+                        <td>光鎮里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>黃詠歆</td>
+                        <td>代理里長</td>
+                        <td>寺前里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>林汶蓉</td>
+                        <td>里長</td>
+                        <td>明湖里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳心嵐</td>
+                        <td>里長</td>
+                        <td>新光里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>賴美燕</td>
+                        <td>代理里長</td>
+                        <td>南大里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>林文烽</td>
+                        <td>里長</td>
+                        <td>北門里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>許明霞</td>
+                        <td>里長</td>
+                        <td>水田里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>張金潔</td>
+                        <td>里長</td>
+                        <td>新民里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>楊金土</td>
+                        <td>里長</td>
+                        <td>長和里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>黃丞廷</td>
+                        <td>里長</td>
+                        <td>中興里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>沈朝旺</td>
+                        <td>里長</td>
+                        <td>民富里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>朱毅</td>
+                        <td>里長</td>
+                        <td>文雅里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>林輝雄</td>
+                        <td>里長</td>
+                        <td>磐石里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>郭瑞誠</td>
+                        <td>里長</td>
+                        <td>中山里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>廖佐華</td>
+                        <td>里長</td>
+                        <td>新雅里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>韋宗賢</td>
+                        <td>里長</td>
+                        <td>大同里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>黃偉文</td>
+                        <td>里長</td>
+                        <td>士林里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>洪炎輝</td>
+                        <td>里長</td>
+                        <td>福林里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>莊火炎</td>
+                        <td>里長</td>
+                        <td>光田里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>曾發</td>
+                        <td>里長</td>
+                        <td>境福里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>王泰山</td>
+                        <td>里長</td>
+                        <td>古賢里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>李思民</td>
+                        <td>里長</td>
+                        <td>武陵里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>曾再霖</td>
+                        <td>里長</td>
+                        <td>西門里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳瑞麟</td>
+                        <td>里長</td>
+                        <td>潛園里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>彭垂東</td>
+                        <td>里長</td>
+                        <td>中央里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>林正雄</td>
+                        <td>里長</td>
+                        <td>仁德里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>鄭瑞鉦</td>
+                        <td>里長</td>
+                        <td>崇禮里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>彭陳玉真</td>
+                        <td>里長</td>
+                        <td>石坊里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>胡銘煌</td>
+                        <td>里長</td>
+                        <td>興南里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>許謝胤</td>
+                        <td>里長</td>
+                        <td>湳雅里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>朱倖儀</td>
+                        <td>里長</td>
+                        <td>舊社里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>葉家榮</td>
+                        <td>里長</td>
+                        <td>金竹里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>張慶榮</td>
+                        <td>里長</td>
+                        <td>光華里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>李文中</td>
+                        <td>里長</td>
+                        <td>金華里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>蘇虹宇</td>
+                        <td>里長</td>
+                        <td>金雅里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>黃彥翔</td>
+                        <td>里長</td>
+                        <td>湳中里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>蔡頴德</td>
+                        <td>里長</td>
+                        <td>客雅里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>温承杰</td>
+                        <td>里長</td>
+                        <td>育英里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>廖成章</td>
+                        <td>里長</td>
+                        <td>曲溪里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>謝金財</td>
+                        <td>里長</td>
+                        <td>台溪里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>郭文銘</td>
+                        <td>里長</td>
+                        <td>南勢里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>王立業</td>
+                        <td>里長</td>
+                        <td>大鵬里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>廖火桂</td>
+                        <td>里長</td>
+                        <td>西雅里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>鄔滬生</td>
+                        <td>里長</td>
+                        <td>中雅里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>許典維</td>
+                        <td>里長</td>
+                        <td>南寮里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>林再興</td>
+                        <td>里長</td>
+                        <td>康樂里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>蔡松根</td>
+                        <td>里長</td>
+                        <td>舊港里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>彭永泰</td>
+                        <td>里長</td>
+                        <td>海濱里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>曾欽裕</td>
+                        <td>里長</td>
+                        <td>港北里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>徐瑞龍</td>
+                        <td>里長</td>
+                        <td>中寮里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>沈復環</td>
+                        <td>里長</td>
+                        <td>頂埔里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>吳烈如</td>
+                        <td>里長</td>
+                        <td>頂福里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>曾春慧</td>
+                        <td>里長</td>
+                        <td>中埔里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>蔡萱燁</td>
+                        <td>里長</td>
+                        <td>埔前里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>蔡黃棟</td>
+                        <td>里長</td>
+                        <td>牛埔里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>黃郁淳</td>
+                        <td>里長</td>
+                        <td>虎林里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>鄭妙評</td>
+                        <td>代理里長</td>
+                        <td>虎山里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>蘇瑞林</td>
+                        <td>里長</td>
+                        <td>港南里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>黃文濱</td>
+                        <td>里長</td>
+                        <td>香山里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳梨娟</td>
+                        <td>里長</td>
+                        <td>大庄里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>吳春生</td>
+                        <td>里長</td>
+                        <td>香村里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>許麗君</td>
+                        <td>里長</td>
+                        <td>東香里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳居財</td>
+                        <td>里長</td>
+                        <td>美山里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳桂廷</td>
+                        <td>里長</td>
+                        <td>朝山里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>蔡志堅</td>
+                        <td>里長</td>
+                        <td>樹下里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>楊松棋</td>
+                        <td>里長</td>
+                        <td>浸水里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳文賢</td>
+                        <td>里長</td>
+                        <td>海山里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳文榮</td>
+                        <td>里長</td>
+                        <td>鹽水里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>王斌展</td>
+                        <td>里長</td>
+                        <td>內湖里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>林武鍾</td>
+                        <td>里長</td>
+                        <td>南港里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>陳士樺</td>
+                        <td>里長</td>
+                        <td>中隘里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>邱坤源</td>
+                        <td>里長</td>
+                        <td>南隘里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>曾一德</td>
+                        <td>里長</td>
+                        <td>大湖里</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>古秀芬</td>
+                        <td>里長</td>
+                        <td>茄苳里</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

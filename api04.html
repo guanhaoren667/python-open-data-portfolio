@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>115 年竹風藝文饗宴節目表｜Python API 作品集</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f6f8fb;
+            color: #253247;
+            font-family:
+                "Segoe UI",
+                "Microsoft JhengHei",
+                sans-serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #0b66c3;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            color: #17375e;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #63758a;
+        }
+
+        .record-count {
+            margin-top: 10px;
+            color: #0b66c3;
+            font-weight: 700;
+        }
+
+        .update-note {
+            margin-top: 12px;
+            padding: 12px 16px;
+            color: #52647a;
+            background-color: #eaf4ff;
+            border-left: 4px solid #0b66c3;
+            border-radius: 6px;
+        }
+
+        .update-note code {
+            color: #17375e;
+            font-weight: 700;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            background-color: #ffffff;
+            border-radius: 14px;
+            box-shadow:
+                0 8px 30px rgba(34, 67, 108, 0.08);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            min-width: 800px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e5eaf0;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #ffffff;
+            background-color: #0b66c3;
+            white-space: nowrap;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f7fd;
+        }
+
+        td:nth-child(1),
+        td:nth-child(2) {
+            white-space: nowrap;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 25px 14px;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <a class="back-link" href="index.html">
+            ← 返回作品集首頁
+        </a>
+
+        <header class="page-header">
+            <h1>115 年竹風藝文饗宴節目表</h1>
+
+            <p>
+                使用 Python 讀取新竹市政府開放資料 API，
+                並整理日期、時間、地點與活動節目等欄位。
+            </p>
+
+            <p class="record-count">
+                本頁顯示共 70 筆資料
+            </p>
+
+            <p class="update-note">
+                本頁資料由 Python 程式讀取 API 後產生。<br>
+                如需更新資料，可重新執行
+                <code>generate_api04_html.py</code>。
+            </p>
+        </header>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>日期</th>
+                        <th>時間</th>
+                        <th>地點</th>
+                        <th>活動節目</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>1150314</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>現代舞團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150314</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>竹塹歌友會俱樂部</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150314</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>新竹國劇演藝團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150321</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>竹塹音樂人推廣協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150321</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園廣場</td>
+                        <td>新竹爵士大樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150328</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>風城青少年管弦樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150328</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>新竹市流行音樂文化發展及交流協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150411</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>張沛涵歌唱表演</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150411</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>圓圓肚皮舞</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150411</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>新竹市立管樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150418</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>新竹爵士大樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150418</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>新竹國劇演藝團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150425</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>竹塹築夢歌劇團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150425</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園廣場</td>
+                        <td>IVETADANCE舞蹈團體</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150425</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>新竹市立管樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150425</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>新竹市樂活跳跳舞協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150502</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>昀昀舞集</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150502</td>
+                        <td>15:30-17:00</td>
+                        <td>青草湖景觀平台</td>
+                        <td>愛微風團隊</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150509</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>張沛涵歌唱表演</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150509</td>
+                        <td>15:30-17:00</td>
+                        <td>青草湖景觀平台</td>
+                        <td>巧巧民謠民俗舞蹈團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150516</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>竹塹小雅樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150516</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園廣場</td>
+                        <td>菲揚飛揚舞蹈團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150516</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>新竹國劇演藝團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150516</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>現代舞團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150523</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>新竹市體育會健身球委員會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150523</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園廣場</td>
+                        <td>磐石高中管樂社</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150523</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>新竹交響管樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150530</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>新竹交響管樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150530</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>竹塹築夢歌劇團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150530</td>
+                        <td>15:30-17:00</td>
+                        <td>青草湖景觀平台</td>
+                        <td>新竹市舞蹈協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150606</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>新竹爵士大樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150606</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>新竹交響管樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150606</td>
+                        <td>15:30-17:00</td>
+                        <td>青草湖景觀平台</td>
+                        <td>愛微風團隊</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150613</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>新竹市舞蹈運動協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150613</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>菲揚飛揚舞蹈團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150627</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>愛微風團隊</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150627</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>筑風舞集</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150627</td>
+                        <td>15:30-17:00</td>
+                        <td>青草湖景觀平台</td>
+                        <td>竹塹築夢歌劇團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150704</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>新竹市新住民關懷協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150704</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>巧巧民謠民俗舞蹈團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150711</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>巧巧民謠民俗舞蹈團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150725</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>新竹市客家文化發展協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150725</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>新竹市舞蹈協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150725</td>
+                        <td>15:30-17:00</td>
+                        <td>青草湖景觀平台</td>
+                        <td>筑風舞集</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150725</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>新竹爵士大樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150711</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園廣場</td>
+                        <td>巧巧民謠民俗舞蹈團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150815</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>李金蘭</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150815</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>新竹市東方舞舞蹈運動協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150815</td>
+                        <td>15:30-17:00</td>
+                        <td>青草湖景觀平台</td>
+                        <td>郭玉清(管頌重奏團)</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150815</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>新竹市流行音樂文化發展及交流協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150829</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>新竹市流行音樂文化發展及交流協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150829</td>
+                        <td>15:30-17:00</td>
+                        <td>護城河舞台</td>
+                        <td>新竹市客家文化發展協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150829</td>
+                        <td>15:30-17:00</td>
+                        <td>青草湖景觀平台</td>
+                        <td>筑風舞集</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150829</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園廣場</td>
+                        <td>竹塹築夢歌劇團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150905</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>新竹市新住民關懷協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150905</td>
+                        <td>15:30-17:00</td>
+                        <td>青草湖景觀平台</td>
+                        <td>竹塹音樂人推廣協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150912</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>新竹市體育會健身球委員會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150912</td>
+                        <td>15:30-17:00</td>
+                        <td>青草湖景觀平台</td>
+                        <td>菲揚飛揚舞蹈團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150919</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園廣場</td>
+                        <td>筑風舞集</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150919</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>薪竹崑劇團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1151003</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>青溪歌友會俱樂部</td>
+                    </tr>
+
+                    <tr>
+                        <td>1151003</td>
+                        <td>15:30-17:00</td>
+                        <td>青草湖景觀平台</td>
+                        <td>新竹市客家文化發展協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1151017</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>竹塹小雅樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1151017</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園廣場</td>
+                        <td>新竹市立管樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1151017</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>風城青少年管弦樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1151024</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園九曲橋</td>
+                        <td>圓圓肚皮舞</td>
+                    </tr>
+
+                    <tr>
+                        <td>1151024</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>風城青少年管弦樂團</td>
+                    </tr>
+
+                    <tr>
+                        <td>1151031</td>
+                        <td>15:30-17:00</td>
+                        <td>新竹公園廣場</td>
+                        <td>新竹市舞蹈協會</td>
+                    </tr>
+
+                    <tr>
+                        <td>1151031</td>
+                        <td>15:30-17:00</td>
+                        <td>親水公園圓形廣場</td>
+                        <td>李金蘭</td>
+                    </tr>
+
+                    <tr>
+                        <td>1151031</td>
+                        <td>15:30-17:00</td>
+                        <td>青草湖景觀平台</td>
+                        <td>現代舞團</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

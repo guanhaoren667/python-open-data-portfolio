@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新竹市立案表演團體名冊｜Python API 作品集</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f6f8fb;
+            color: #253247;
+            font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #0b66c3;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            margin-bottom: 10px;
+            color: #17375e;
+        }
+
+        .page-header p {
+            color: #63758a;
+        }
+
+        .record-count {
+            margin-top: 10px;
+            color: #0b66c3;
+            font-weight: 700;
+        }
+
+        .update-note {
+            margin-top: 12px;
+            padding: 12px 16px;
+            color: #52647a;
+            background-color: #eaf4ff;
+            border-left: 4px solid #0b66c3;
+            border-radius: 6px;
+        }
+
+        .update-note code {
+            color: #17375e;
+            font-weight: 700;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            background-color: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(34, 67, 108, 0.08);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            min-width: 800px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e5eaf0;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #ffffff;
+            background-color: #0b66c3;
+            white-space: nowrap;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f7fd;
+        }
+
+        td:nth-child(2) {
+            white-space: nowrap;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 25px 14px;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <a class="back-link" href="index.html">
+            ← 返回作品集首頁
+        </a>
+
+        <header class="page-header">
+            <h1>新竹市立案表演團體名冊</h1>
+
+            <p>
+                使用 Python 讀取新竹市政府開放資料 API，
+                並整理演藝團體名稱、立案日期與表演類型等欄位。
+            </p>
+
+            <p class="record-count">
+                本頁顯示共 83 筆資料
+            </p>
+
+            <p class="update-note">
+                本頁資料由 Python 程式讀取 API 後產生。<br>
+                如需更新資料，可重新執行
+                <code>generate_api10_html.py</code>。
+            </p>
+        </header>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>演藝團體名稱</th>
+                        <th>立案日期</th>
+                        <th>表演類型</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>台灣木笛團</td>
+                        <td>1051104</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市立愛樂管弦樂團</td>
+                        <td>1051128</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>熟人風樂團</td>
+                        <td>1051206</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>沂風室內合唱團</td>
+                        <td>1051214</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>KGB專業街舞團</td>
+                        <td>1060125</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市立青少年國樂團</td>
+                        <td>1060206</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹青年國樂團</td>
+                        <td>1060207</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>菲揚飛揚舞蹈團</td>
+                        <td>1060327</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>筑風舞集</td>
+                        <td>1060327</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>日月興戲劇團</td>
+                        <td>1060327</td>
+                        <td>傳統藝術</td>
+                    </tr>
+
+                    <tr>
+                        <td>竹塹小雅樂團</td>
+                        <td>1060327</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>龍鳳園戲劇團</td>
+                        <td>1060327</td>
+                        <td>戲劇</td>
+                    </tr>
+
+                    <tr>
+                        <td>風城青少年管弦樂團</td>
+                        <td>1060428</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>艾默士管樂團</td>
+                        <td>1060428</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>左撇子工場</td>
+                        <td>1060428</td>
+                        <td>戲劇</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹交響管樂團</td>
+                        <td>1060517</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>巧巧民謠民俗舞蹈團</td>
+                        <td>1060531</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市欣蕾舞蹈團</td>
+                        <td>1060531</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>好玩的劇團</td>
+                        <td>1060603</td>
+                        <td>戲劇</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市立相聲團</td>
+                        <td>1060608</td>
+                        <td>傳統藝術</td>
+                    </tr>
+
+                    <tr>
+                        <td>竹塹築夢歌劇團</td>
+                        <td>1060615</td>
+                        <td>傳統藝術</td>
+                    </tr>
+
+                    <tr>
+                        <td>雅韻歌劇坊</td>
+                        <td>1060619</td>
+                        <td>戲劇</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市立國樂團</td>
+                        <td>1060615</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹國劇演藝團</td>
+                        <td>1060707</td>
+                        <td>傳統藝術</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市立管樂團</td>
+                        <td>1060717</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市立青少年管樂團</td>
+                        <td>1060711</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>竹友男聲合唱團</td>
+                        <td>1060710</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>吟風箏樂團</td>
+                        <td>1060717</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市立混聲合唱團</td>
+                        <td>1060725</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>晶晶兒童合唱團</td>
+                        <td>1060801</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市婦女劇團</td>
+                        <td>1060827</td>
+                        <td>戲劇</td>
+                    </tr>
+
+                    <tr>
+                        <td>巫婆戲劇魔法故事屋</td>
+                        <td>1060802</td>
+                        <td>戲劇</td>
+                    </tr>
+
+                    <tr>
+                        <td>清颺合唱團</td>
+                        <td>1060801</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>海鷗‧K人聲樂團</td>
+                        <td>1060815</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>昀昀舞集</td>
+                        <td>1060904</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>王子瑞舞團</td>
+                        <td>1060821</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市立薔薇婦女合唱團</td>
+                        <td>1060822</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>IVETADANCE舞蹈團體</td>
+                        <td>1060825</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市光華國中校友管樂團</td>
+                        <td>1060829</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>鋼琴N次方</td>
+                        <td>1060904</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>心築愛樂合唱團</td>
+                        <td>1060904</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹愛樂男聲合唱團</td>
+                        <td>1061026</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>國際民俗‧竹韻舞集</td>
+                        <td>1061218</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>城市民歌</td>
+                        <td>1070116</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>現代舞團</td>
+                        <td>1070129</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市立兒童合唱團</td>
+                        <td>1070129</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹科學園區合唱團</td>
+                        <td>1070312</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹聯合聖詠團</td>
+                        <td>1070607</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>竹塹北管藝術團</td>
+                        <td>1070925</td>
+                        <td>戲劇</td>
+                    </tr>
+
+                    <tr>
+                        <td>竹塹舞龍獅藝團</td>
+                        <td>1070925</td>
+                        <td>戲劇</td>
+                    </tr>
+
+                    <tr>
+                        <td>嵐韻箏樂團</td>
+                        <td>1071008</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>新笙合唱團</td>
+                        <td>1071030</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>竹中愛樂管樂團</td>
+                        <td>1080123</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>藝恩兒童合唱團</td>
+                        <td>1080419</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>燈角樂團</td>
+                        <td>1080419</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>完美舞團</td>
+                        <td>1080530</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>小星星樂團</td>
+                        <td>1080530</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>音樂動力樂團</td>
+                        <td>1080905</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹紅如樂團</td>
+                        <td>1081210</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>景星室內合唱團</td>
+                        <td>1090319</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>金站舞團</td>
+                        <td>1090324</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>福來德愛樂</td>
+                        <td>1090907</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>紅如現代HAKKA文化藝術團</td>
+                        <td>1090914</td>
+                        <td>其他</td>
+                    </tr>
+
+                    <tr>
+                        <td>化踴青少年舞團</td>
+                        <td>1091102</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹爵士大樂團</td>
+                        <td>1091217</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>芝音表演藝術團體</td>
+                        <td>1090105</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>Tanvolution探戈樂團</td>
+                        <td>1100320</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>沐恩歌手</td>
+                        <td>1100811</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>大風搖擺舞團</td>
+                        <td>1101104</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>後來者劇場</td>
+                        <td>1110510</td>
+                        <td>戲劇</td>
+                    </tr>
+
+                    <tr>
+                        <td>上優舞團</td>
+                        <td>1110621</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>黑朝單簧管重奏團</td>
+                        <td>1111102</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>不然，B計畫</td>
+                        <td>1111221</td>
+                        <td>戲劇</td>
+                    </tr>
+
+                    <tr>
+                        <td>竹塹歌友會俱樂部</td>
+                        <td>1120113</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>青溪歌友會俱樂部</td>
+                        <td>1120113</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>哇哈哈劇團</td>
+                        <td>1120602</td>
+                        <td>戲劇</td>
+                    </tr>
+
+                    <tr>
+                        <td>站立風城</td>
+                        <td>1120817</td>
+                        <td>戲劇</td>
+                    </tr>
+
+                    <tr>
+                        <td>就是女聲合唱團HERVOICECHOIR</td>
+                        <td>1120914</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>米克斯舞蹈團</td>
+                        <td>1120921</td>
+                        <td>舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>華優歌舞會俱樂部</td>
+                        <td>1121019</td>
+                        <td>音樂、舞蹈</td>
+                    </tr>
+
+                    <tr>
+                        <td>薪竹崑劇團</td>
+                        <td>1130311</td>
+                        <td>傳統藝術</td>
+                    </tr>
+
+                    <tr>
+                        <td>國立陽明交通大學教職員合唱團</td>
+                        <td>1130528</td>
+                        <td>音樂</td>
+                    </tr>
+
+                    <tr>
+                        <td>快藝愛樂</td>
+                        <td>1130815</td>
+                        <td>音樂</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

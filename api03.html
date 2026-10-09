@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    
+    <title>114 學年度新竹市立國中小通訊資料｜Python API 作品集</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f6f8fb;
+            color: #253247;
+            font-family:
+                "Segoe UI",
+                "Microsoft JhengHei",
+                sans-serif;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #0b66c3;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            color: #17375e;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #63758a;
+        }
+
+        .record-count {
+            margin-top: 10px;
+            color: #0b66c3;
+            font-weight: 700;
+        }
+
+        .update-note {
+            margin-top: 12px;
+            padding: 12px 16px;
+            color: #52647a;
+            background-color: #eaf4ff;
+            border-left: 4px solid #0b66c3;
+            border-radius: 6px;
+        }
+
+        .update-note code {
+            color: #17375e;
+            font-weight: 700;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            background-color: #ffffff;
+            border-radius: 14px;
+            box-shadow:
+                0 8px 30px rgba(34, 67, 108, 0.08);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            min-width: 750px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e5eaf0;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #ffffff;
+            background-color: #0b66c3;
+            white-space: nowrap;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f7fd;
+        }
+
+        td:nth-child(1),
+        td:nth-child(2) {
+            white-space: nowrap;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 25px 14px;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <a class="back-link" href="index.html">
+            ← 返回作品集首頁
+        </a>
+
+        <header class="page-header">
+            <h1>114 學年度新竹市立國中小通訊資料</h1>
+
+            <p>
+                使用 Python 讀取新竹市政府開放資料 API，
+                並整理學校名稱、電話與地址等欄位。
+            </p>
+
+            <p class="record-count">
+                本頁顯示共 54 筆資料
+            </p>
+
+            <p class="update-note">
+                本頁資料由 Python 程式讀取 API 後產生。<br>
+                如需更新資料，可重新執行
+                <code>generate_api03_html.py</code>。
+            </p>
+        </header>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>學校</th>
+                        <th>電話</th>
+                        <th>地址</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>成德高中</td>
+                        <td>(03)5258748</td>
+                        <td>北區崧嶺路128巷38號</td>
+                    </tr>
+
+                    <tr>
+                        <td>香山高中</td>
+                        <td>(03)5384332</td>
+                        <td>香山區元培街124號</td>
+                    </tr>
+
+                    <tr>
+                        <td>建功高中</td>
+                        <td>(03)5745892</td>
+                        <td>東區建功二路17號</td>
+                    </tr>
+
+                    <tr>
+                        <td>數位實驗高中</td>
+                        <td>(03)6211165</td>
+                        <td>香山區延平路二段76號</td>
+                    </tr>
+
+                    <tr>
+                        <td>建華國中</td>
+                        <td>(03)5238075</td>
+                        <td>東區建華里2鄰學府路2號</td>
+                    </tr>
+
+                    <tr>
+                        <td>培英國中</td>
+                        <td>(03)5721301</td>
+                        <td>東區東山里學府路4號</td>
+                    </tr>
+
+                    <tr>
+                        <td>光華國中</td>
+                        <td>(03)5316605</td>
+                        <td>北區光華北街10號</td>
+                    </tr>
+
+                    <tr>
+                        <td>育賢國中</td>
+                        <td>(03)5223075</td>
+                        <td>東區南大路569號</td>
+                    </tr>
+
+                    <tr>
+                        <td>光武國中</td>
+                        <td>(03)5773934</td>
+                        <td>東區光復路一段512號</td>
+                    </tr>
+
+                    <tr>
+                        <td>南華國中</td>
+                        <td>(03)5362204</td>
+                        <td>北區海濱路55號</td>
+                    </tr>
+
+                    <tr>
+                        <td>富禮國中</td>
+                        <td>(03)5374793</td>
+                        <td>香山區富禮街16號</td>
+                    </tr>
+
+                    <tr>
+                        <td>三民國中</td>
+                        <td>(03)5339825</td>
+                        <td>中央路345號</td>
+                    </tr>
+
+                    <tr>
+                        <td>內湖國中</td>
+                        <td>(03)5373484</td>
+                        <td>香山區五福路一段12號</td>
+                    </tr>
+
+                    <tr>
+                        <td>虎林國中</td>
+                        <td>(03)5309433</td>
+                        <td>香山區延平路二段76號</td>
+                    </tr>
+
+                    <tr>
+                        <td>新科國中</td>
+                        <td>(03)6686387</td>
+                        <td>光復路一段89巷88號</td>
+                    </tr>
+
+                    <tr>
+                        <td>竹光國中</td>
+                        <td>(03)5246683</td>
+                        <td>北區和平路1號</td>
+                    </tr>
+
+                    <tr>
+                        <td>東門國小</td>
+                        <td>(03)5222109</td>
+                        <td>東區民族路33號</td>
+                    </tr>
+
+                    <tr>
+                        <td>民富國小</td>
+                        <td>(03)5222102</td>
+                        <td>北區西大路561號</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹國小</td>
+                        <td>(03)5222153</td>
+                        <td>東區南大路500號</td>
+                    </tr>
+
+                    <tr>
+                        <td>東園國小</td>
+                        <td>(03)5712496</td>
+                        <td>東區園後街25號</td>
+                    </tr>
+
+                    <tr>
+                        <td>北門國小</td>
+                        <td>(03)5316668</td>
+                        <td>北區水田街33號</td>
+                    </tr>
+
+                    <tr>
+                        <td>載熙國小</td>
+                        <td>(03)5316675</td>
+                        <td>北區東大路二段386號</td>
+                    </tr>
+
+                    <tr>
+                        <td>三民國小</td>
+                        <td>(03)5326345</td>
+                        <td>東區自由路66號</td>
+                    </tr>
+
+                    <tr>
+                        <td>龍山國小</td>
+                        <td>(03)5774287</td>
+                        <td>東區光復路一段(03)574號</td>
+                    </tr>
+
+                    <tr>
+                        <td>關埔國小</td>
+                        <td>(03)6669086</td>
+                        <td>東區慈濟路2號</td>
+                    </tr>
+
+                    <tr>
+                        <td>西門國小</td>
+                        <td>(03)5222492</td>
+                        <td>北區北大路450號</td>
+                    </tr>
+
+                    <tr>
+                        <td>竹蓮國小</td>
+                        <td>(03)5223066</td>
+                        <td>東區食品路226號</td>
+                    </tr>
+
+                    <tr>
+                        <td>關東國小</td>
+                        <td>(03)5775645</td>
+                        <td>東區關東路(03)53號</td>
+                    </tr>
+
+                    <tr>
+                        <td>虎林國小</td>
+                        <td>(03)5381820</td>
+                        <td>香山區延平路二段78號</td>
+                    </tr>
+
+                    <tr>
+                        <td>大庄國小</td>
+                        <td>(03)5384035</td>
+                        <td>香山區大庄路48號</td>
+                    </tr>
+
+                    <tr>
+                        <td>南寮國小</td>
+                        <td>(03)5363448</td>
+                        <td>北區東大路三段465號</td>
+                    </tr>
+
+                    <tr>
+                        <td>香山國小</td>
+                        <td>(03)5386164</td>
+                        <td>香山區牛埔東路260號</td>
+                    </tr>
+
+                    <tr>
+                        <td>內湖國小</td>
+                        <td>(03)5373184</td>
+                        <td>香山區內湖路109號</td>
+                    </tr>
+
+                    <tr>
+                        <td>建功國小</td>
+                        <td>(03)5713447</td>
+                        <td>東區建功一路104巷22號</td>
+                    </tr>
+
+                    <tr>
+                        <td>頂埔國小</td>
+                        <td>(03)5386204</td>
+                        <td>香山區頂埔路23號</td>
+                    </tr>
+
+                    <tr>
+                        <td>水源國小</td>
+                        <td>(03)5711125</td>
+                        <td>東區仰德路11號</td>
+                    </tr>
+
+                    <tr>
+                        <td>朝山國小</td>
+                        <td>(03)5374304</td>
+                        <td>香山區中華路五段648巷126號</td>
+                    </tr>
+
+                    <tr>
+                        <td>南隘國小</td>
+                        <td>(03)5371405</td>
+                        <td>香山區南隘路二段31號</td>
+                    </tr>
+
+                    <tr>
+                        <td>港南國小</td>
+                        <td>(03)5382964</td>
+                        <td>香山區海埔路171巷91號</td>
+                    </tr>
+
+                    <tr>
+                        <td>茄苳國小</td>
+                        <td>(03)5373543</td>
+                        <td>香山區茄苳里茄苳路70號</td>
+                    </tr>
+
+                    <tr>
+                        <td>大湖國小</td>
+                        <td>(03)5374609</td>
+                        <td>香山區五福路一段(03)530號</td>
+                    </tr>
+
+                    <tr>
+                        <td>舊社國小</td>
+                        <td>(03)5342023</td>
+                        <td>北區金竹路99號</td>
+                    </tr>
+
+                    <tr>
+                        <td>陽光國小</td>
+                        <td>(03)5629600</td>
+                        <td>東區明湖路200號</td>
+                    </tr>
+
+                    <tr>
+                        <td>科園國小</td>
+                        <td>(03)6668421</td>
+                        <td>東區科學園路171號</td>
+                    </tr>
+
+                    <tr>
+                        <td>高峰國小</td>
+                        <td>(03)5626909</td>
+                        <td>東區高翠路332巷2號</td>
+                    </tr>
+
+                    <tr>
+                        <td>青草湖國小</td>
+                        <td>(03)5200360</td>
+                        <td>東區明湖路1211號</td>
+                    </tr>
+
+                    <tr>
+                        <td>華德福實驗學校</td>
+                        <td>(03)5191909</td>
+                        <td>香山區華德福街160巷25號</td>
+                    </tr>
+
+                    <tr>
+                        <td>國立園區實中</td>
+                        <td>(03)5777011</td>
+                        <td>介壽路300號</td>
+                    </tr>
+
+                    <tr>
+                        <td>國立清大附小</td>
+                        <td>(03)5282420</td>
+                        <td>北區四維路47號</td>
+                    </tr>
+
+                    <tr>
+                        <td>私立曙光小學</td>
+                        <td>(03)5328283</td>
+                        <td>東區北大路70號</td>
+                    </tr>
+
+                    <tr>
+                        <td>私立康橋中小學</td>
+                        <td>(03)5192000</td>
+                        <td>東區柴橋里藝術路2號</td>
+                    </tr>
+
+                    <tr>
+                        <td>私立曙光女中</td>
+                        <td>(03)5325709</td>
+                        <td>東區北大路61號</td>
+                    </tr>
+
+                    <tr>
+                        <td>私立光復中學</td>
+                        <td>(03)5753559</td>
+                        <td>東區光復路二段1(03)53號</td>
+                    </tr>
+
+                    <tr>
+                        <td>私立磐石中學</td>
+                        <td>(03)5223946</td>
+                        <td>北區西大路683號</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

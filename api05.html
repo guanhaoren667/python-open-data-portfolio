@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新竹市預防接種合約院所名冊｜Python API 作品集</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f6f8fb;
+            color: #253247;
+            font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #0b66c3;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            margin-bottom: 10px;
+            color: #17375e;
+        }
+
+        .page-header p {
+            color: #63758a;
+        }
+
+        .record-count {
+            margin-top: 10px;
+            color: #0b66c3;
+            font-weight: 700;
+        }
+
+        .update-note {
+            margin-top: 12px;
+            padding: 12px 16px;
+            color: #52647a;
+            background-color: #eaf4ff;
+            border-left: 4px solid #0b66c3;
+            border-radius: 6px;
+        }
+
+        .update-note code {
+            color: #17375e;
+            font-weight: 700;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            background-color: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(34, 67, 108, 0.08);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            min-width: 900px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e5eaf0;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #ffffff;
+            background-color: #0b66c3;
+            white-space: nowrap;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f7fd;
+        }
+
+        td:nth-child(2),
+        td:nth-child(3) {
+            white-space: nowrap;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 25px 14px;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <a class="back-link" href="index.html">
+            ← 返回作品集首頁
+        </a>
+
+        <header class="page-header">
+            <h1>新竹市預防接種合約院所名冊</h1>
+
+            <p>
+                使用 Python 讀取新竹市政府開放資料 API，
+                並整理醫療院所名稱、醫療機構代碼、電話與地址等欄位。
+            </p>
+
+            <p class="record-count">
+                本頁顯示共 42 筆資料
+            </p>
+
+            <p class="update-note">
+                本頁資料由 Python 程式讀取 API 後產生。<br>
+                如需更新資料，可重新執行
+                <code>generate_api05_html.py</code>。
+            </p>
+        </header>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>醫療院所名稱</th>
+                        <th>醫療機構代碼</th>
+                        <th>電話</th>
+                        <th>地址</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>東區衛生所</td>
+                        <td>2312010014</td>
+                        <td>(03)5236158</td>
+                        <td>新竹市民族路40-2號</td>
+                    </tr>
+
+                    <tr>
+                        <td>南門綜合醫院</td>
+                        <td>1512011185</td>
+                        <td>(03)5261122</td>
+                        <td>新竹市林森路20號</td>
+                    </tr>
+
+                    <tr>
+                        <td>台灣基督長老教會馬偕醫療財團法人新竹馬偕紀念醫院</td>
+                        <td>1112010519</td>
+                        <td>(03)6119595</td>
+                        <td>新竹市光復路二段690號</td>
+                    </tr>
+
+                    <tr>
+                        <td>國泰醫療財團法人新竹國泰綜合醫院</td>
+                        <td>1112010528</td>
+                        <td>(03)5278999</td>
+                        <td>新竹市中華路二段678號</td>
+                    </tr>
+
+                    <tr>
+                        <td>新竹市立馬偕兒童醫院</td>
+                        <td>1112010537</td>
+                        <td>(03)5719999</td>
+                        <td>新竹市東區建功二路28號</td>
+                    </tr>
+
+                    <tr>
+                        <td>簡小兒科內科診所</td>
+                        <td>3512010617</td>
+                        <td>(03)5223963</td>
+                        <td>新竹市西大路364號</td>
+                    </tr>
+
+                    <tr>
+                        <td>江婦產科診所</td>
+                        <td>3512010939</td>
+                        <td>(03)5353532</td>
+                        <td>新竹市民族路125號</td>
+                    </tr>
+
+                    <tr>
+                        <td>石銘煌診所</td>
+                        <td>3512011070</td>
+                        <td>(03)5277332</td>
+                        <td>新竹市東區東門街138號</td>
+                    </tr>
+
+                    <tr>
+                        <td>廖明厚小兒科診所</td>
+                        <td>3512011150</td>
+                        <td>(03)5316665</td>
+                        <td>新竹市民族路130號</td>
+                    </tr>
+
+                    <tr>
+                        <td>謝碧祥診所</td>
+                        <td>3512011187</td>
+                        <td>(03)5725099</td>
+                        <td>新竹市光復路二段254號</td>
+                    </tr>
+
+                    <tr>
+                        <td>葉佳全小兒科診所</td>
+                        <td>3512011329</td>
+                        <td>(03)5321977</td>
+                        <td>新竹市民權路199號</td>
+                    </tr>
+
+                    <tr>
+                        <td>蘇育賢小兒科診所</td>
+                        <td>3512012479</td>
+                        <td>(03)5212911</td>
+                        <td>新竹市東區文昌街109號</td>
+                    </tr>
+
+                    <tr>
+                        <td>啟恩小兒科診所</td>
+                        <td>3512012728</td>
+                        <td>(03)5317177</td>
+                        <td>新竹市中央路269號1樓</td>
+                    </tr>
+
+                    <tr>
+                        <td>林正弘小兒科診所</td>
+                        <td>3512012773</td>
+                        <td>(03)5311905</td>
+                        <td>新竹市光華東街16號</td>
+                    </tr>
+
+                    <tr>
+                        <td>慈佑小兒科診所</td>
+                        <td>3512012899</td>
+                        <td>(03)5613809</td>
+                        <td>新竹市東區南大路549號1樓</td>
+                    </tr>
+
+                    <tr>
+                        <td>趙永康小兒科診所</td>
+                        <td>3512012906</td>
+                        <td>(03)5313931</td>
+                        <td>新竹市北大路25號</td>
+                    </tr>
+
+                    <tr>
+                        <td>賴閔宦小兒科診所</td>
+                        <td>3512013225</td>
+                        <td>(03)5611238</td>
+                        <td>新竹市南大路387-1號</td>
+                    </tr>
+
+                    <tr>
+                        <td>小太陽耳鼻喉科診所</td>
+                        <td>3512013369</td>
+                        <td>(03)5750238</td>
+                        <td>新竹市東區建新路40號</td>
+                    </tr>
+
+                    <tr>
+                        <td>謝承霖兒童診所</td>
+                        <td>3512013384</td>
+                        <td>(03)5320520</td>
+                        <td>新竹市民族路60號</td>
+                    </tr>
+
+                    <tr>
+                        <td>欣欣診所</td>
+                        <td>3512013467</td>
+                        <td>(03)6663721</td>
+                        <td>新竹市光復路一段147號</td>
+                    </tr>
+
+                    <tr>
+                        <td>宏偉婦產科診所</td>
+                        <td>3512013636</td>
+                        <td>(03)5330733</td>
+                        <td>新竹市東區民生路287號</td>
+                    </tr>
+
+                    <tr>
+                        <td>謝德貴兒童診所</td>
+                        <td>3512013645</td>
+                        <td>(03)6686666</td>
+                        <td>新竹市光復路1段360之2號</td>
+                    </tr>
+
+                    <tr>
+                        <td>漢杰小兒科診所</td>
+                        <td>3512013903</td>
+                        <td>(03)5239779</td>
+                        <td>新竹市南門街14號</td>
+                    </tr>
+
+                    <tr>
+                        <td>林君怡小兒專科診所</td>
+                        <td>3512013912</td>
+                        <td>(03)6662718</td>
+                        <td>新竹市關新路18號</td>
+                    </tr>
+
+                    <tr>
+                        <td>昇安診所</td>
+                        <td>3512014115</td>
+                        <td>(03)6662783</td>
+                        <td>新竹市東區龍山東路1號</td>
+                    </tr>
+
+                    <tr>
+                        <td>小森林兒科診所</td>
+                        <td>3512014124</td>
+                        <td>(03)5670033</td>
+                        <td>新竹市東區慈濟路3號</td>
+                    </tr>
+
+                    <tr>
+                        <td>晨心兒科診所</td>
+                        <td>3512014133</td>
+                        <td>(03)6211505</td>
+                        <td>新竹市東區中央路163號</td>
+                    </tr>
+
+                    <tr>
+                        <td>康田親子診所</td>
+                        <td>3512014222</td>
+                        <td>(03)6662203</td>
+                        <td>新竹市東區龍山東路208號1-2樓</td>
+                    </tr>
+
+                    <tr>
+                        <td>徐健倫親子診所</td>
+                        <td>3512014259</td>
+                        <td>(03)6663155</td>
+                        <td>新竹市東區立鵬路85號1樓</td>
+                    </tr>
+
+                    <tr>
+                        <td>北區衛生所</td>
+                        <td>2312041028</td>
+                        <td>(03)5353969</td>
+                        <td>新竹市國華街69號1樓</td>
+                    </tr>
+
+                    <tr>
+                        <td>國立臺灣大學醫學院附設醫院新竹臺大分院新竹醫院</td>
+                        <td>0412040012</td>
+                        <td>(03)5326151</td>
+                        <td>新竹市北區經國路1段442巷25號</td>
+                    </tr>
+
+                    <tr>
+                        <td>陳建銘婦產科診所</td>
+                        <td>3512040517</td>
+                        <td>(03)5337789</td>
+                        <td>新竹市北區武陵路218巷58號</td>
+                    </tr>
+
+                    <tr>
+                        <td>劉復國診所</td>
+                        <td>3512040599</td>
+                        <td>(03)5210085</td>
+                        <td>新竹市北區中山路48號</td>
+                    </tr>
+
+                    <tr>
+                        <td>簡志澔小兒科診所</td>
+                        <td>3512040777</td>
+                        <td>(03)5223855</td>
+                        <td>新竹市延平路ㄧ段165號</td>
+                    </tr>
+
+                    <tr>
+                        <td>張錚小兒科診所</td>
+                        <td>3512040893</td>
+                        <td>(03)5337928</td>
+                        <td>新竹市北區中正路317號</td>
+                    </tr>
+
+                    <tr>
+                        <td>台安耳鼻喉科診所</td>
+                        <td>3512040955</td>
+                        <td>(03)5246069</td>
+                        <td>新竹市北大路466號</td>
+                    </tr>
+
+                    <tr>
+                        <td>惠生婦產科診所</td>
+                        <td>3512040991</td>
+                        <td>(03)5350358</td>
+                        <td>新竹市北區東大路2段577號</td>
+                    </tr>
+
+                    <tr>
+                        <td>陳君毅小兒科診所</td>
+                        <td>3512042208</td>
+                        <td>(03)5345705</td>
+                        <td>新竹市西大路738號</td>
+                    </tr>
+
+                    <tr>
+                        <td>陳志成耳鼻喉科診所</td>
+                        <td>3512042520</td>
+                        <td>(03)5258626</td>
+                        <td>新竹市西大路619號</td>
+                    </tr>
+
+                    <tr>
+                        <td>林敬堯親子診所</td>
+                        <td>3512042600</td>
+                        <td>(03)5350123</td>
+                        <td>新竹市湳雅街120號</td>
+                    </tr>
+
+                    <tr>
+                        <td>杏保醫網信霖診所</td>
+                        <td>3512042879</td>
+                        <td>(03)5326333</td>
+                        <td>新竹市北區武陵路189號1-2樓</td>
+                    </tr>
+
+                    <tr>
+                        <td>香山衛生所</td>
+                        <td>2312050018</td>
+                        <td>(03)5388109</td>
+                        <td>新竹市育德街188號1樓</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

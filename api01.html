@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新竹市公共危險物品場所資料｜Python API 作品集</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f6f8fb;
+            color: #253247;
+            font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #0b66c3;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            margin-bottom: 10px;
+            color: #17375e;
+        }
+
+        .page-header p {
+            color: #63758a;
+        }
+
+        .record-count {
+            margin-top: 10px;
+            color: #0b66c3;
+            font-weight: 700;
+        }
+
+        .update-note {
+            margin-top: 12px;
+            padding: 12px 16px;
+            color: #52647a;
+            background-color: #eaf4ff;
+            border-left: 4px solid #0b66c3;
+            border-radius: 6px;
+        }
+
+        .update-note code {
+            color: #17375e;
+            font-weight: 700;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            background-color: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(34, 67, 108, 0.08);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            min-width: 1000px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e5eaf0;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #ffffff;
+            background-color: #0b66c3;
+            white-space: nowrap;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f7fd;
+        }
+
+        td:nth-child(1) {
+            white-space: nowrap;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 25px 14px;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <a class="back-link" href="index.html">
+            ← 返回作品集首頁
+        </a>
+
+        <header class="page-header">
+            <h1>新竹市公共危險物品場所資料</h1>
+
+            <p>
+                使用 Python 讀取新竹市政府開放資料 API，
+                並整理民國年月日、場所名稱、地址與說明等欄位。
+            </p>
+
+            <p class="record-count">
+                本頁顯示共 38 筆資料
+            </p>
+
+            <p class="update-note">
+                本頁資料由 Python 程式讀取 API 後產生。<br>
+                如需更新資料，可重新執行
+                <code>generate_api01_html.py</code>。
+            </p>
+        </header>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>民國年月日</th>
+                        <th>場所名稱</th>
+                        <th>地址</th>
+                        <th>說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>高平磊晶科技股份有限公司</td>
+                        <td>新竹市東區力行路2-1號1、3樓</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>力成科技股份有限公司竹科三廠</td>
+                        <td>新竹市東區力行四路29號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>力成科技股份有限公司竹科二廠</td>
+                        <td>新竹市東區力行四路9號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>力成科技股份有限公司竹科分公司(竹科一廠P8)</td>
+                        <td>新竹市東區力行三路15號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>旺宏電子股份有限公司晶圓二廠</td>
+                        <td>新竹市東區力行路16號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>金兆鎔科技股份有限公司竹科淨零廢研製中心</td>
+                        <td>新竹市東區力行五路18號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>力晶積成電子製造股份有限公司8A</td>
+                        <td>新竹市東區力行一路18號(及12號4樓)</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>美商達爾國際股份有限公司新竹分公司</td>
+                        <td>新竹市東區工業東七路7號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>嘉晶電子股份有限公司磊新廠</td>
+                        <td>新竹市東區研新四路12-1號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>采鈺科技股份有限公司</td>
+                        <td>新竹市東區篤行一路12號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>美商達爾國際股份有限公司新竹分公司Phase2廠</td>
+                        <td>新竹市東區工業東七路9號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>力晶積成電子製造股份有限公司P1/2(P1廠)</td>
+                        <td>新竹市東區力行一路12號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>力晶積成電子製造股份有限公司P3</td>
+                        <td>新竹市東區力行路16-1號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>新唐科技股份有限公司</td>
+                        <td>新竹市東區研新三路4號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>台灣積體電路製造股份有限公司十二廠</td>
+                        <td>新竹市東區力行六路8號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>鴻揚半導體股份有限公司</td>
+                        <td>新竹市東區研新三路3號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>台亞半導體股份有限公司力行廠</td>
+                        <td>新竹市東區力行五路1號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>世界先進積體電路股份有限公司晶圓五廠</td>
+                        <td>新竹市東區力行二路1-1號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>友達光電股份有限公司L5廠</td>
+                        <td>新竹市東區力行路23號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>台灣積體電路製造股份有限公司八廠</td>
+                        <td>新竹市東區力行路25號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>旺宏電子股份有限公司晶圓五廠</td>
+                        <td>新竹市東區力行路19號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>富采光電股份有限公司八廠</td>
+                        <td>新竹市東區力行路26號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>富采光電股份有限公司二廠</td>
+                        <td>新竹市東區力行路10號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>世界先進積體電路股份有限公司晶圓二廠</td>
+                        <td>新竹市東區力行路9號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>聯華電子股份有限公司Fab8D</td>
+                        <td>新竹市東區力行三路6、8號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>嘉晶電子股份有限公司篤行廠</td>
+                        <td>新竹市東區篤行一路10號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>聯華電子股份有限公司Fab8A</td>
+                        <td>新竹市東區力行二路3、5號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>昇陽國際半導體股份有限公司</td>
+                        <td>新竹市東區力行路6號(及8號3-4樓)</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>嘉晶電子股份有限公司力行廠</td>
+                        <td>新竹市東區力行路8號5樓</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>聯華電子股份有限公司Fab8E</td>
+                        <td>新竹市東區力行路17號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>聯華電子股份有限公司Fab8F</td>
+                        <td>新竹市東區力行六路3號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>富采光電股份有限公司N5廠</td>
+                        <td>新竹市東區工業東三路3號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>元太科技工業股份有限公司</td>
+                        <td>新竹市東區力行一路3號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>財團法人工業技術研究院(光復院區)</td>
+                        <td>新竹市東區光復路二段321號</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>貝民股份有限公司香山廠</td>
+                        <td>新竹市香山區中隘里中華路六段668號(日)</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>台灣玻璃工業股份有限公司新竹廠</td>
+                        <td>新竹市香山區牛埔里中華路四段470號(日)</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>華夏玻璃股份有限公司</td>
+                        <td>新竹市香山區埔前里埔前路49號(日)</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+
+                    <tr>
+                        <td>1150625</td>
+                        <td>榮福股份有限公司新竹營運處</td>
+                        <td>新竹市北區海濱路240之2號(日)</td>
+                        <td>達管制量30倍之公共危險物品製造儲存或處理場所</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
