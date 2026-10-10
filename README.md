@@ -71,7 +71,7 @@ python-open-data-portfolio/
 ├── generate_api10_html.py
 ├── requirements.txt
 └── README.md
-
+```
 檔案用途
 index.html：作品集網站首頁。
 api01.html～api10.html：各項 API 的資料表頁面。
@@ -80,10 +80,8 @@ requirements.txt：紀錄專案使用的 Python 套件。
 README.md：專案說明文件。
 更新資料方式
 安裝專案需要的套件：
-Shell
 pip install -r requirements.txt
 執行需要更新的 Python 網頁產生器，例如：
-Shell
 python generate_api06_html.py
 程式會重新讀取 API，並更新對應的 HTML 資料頁。
 相關專案
