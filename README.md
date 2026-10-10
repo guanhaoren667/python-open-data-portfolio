@@ -100,7 +100,7 @@ python generate_api06_html.py
 
 第一階段的 Python 文字選單查詢系統：
 
-[查看 Python 政府開放資料 API 查詢系統](https://github.com/guanhaoren667/python-government-open-datamenu)
+[查看 Python 政府開放資料 API 查詢系統](https://github.com/guanhaoren667/python-government-open-data-menu)
 
 ## 開發方式說明
 
